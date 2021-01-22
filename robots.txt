@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: 
+
+Sitemap: https://puneetgopinath.github.io/sitemap.xml
+Sitemap: https://puneetgopinath.github.io/Sanitizers/sitemap.xml
