@@ -1,9 +1,7 @@
 @import "https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css";
 html {
-  text-align: left;
   margin: 10px 10px;
   scroll-behavior: smooth;
-  -webkit-text-size-adjust: 100%;
   box-sizing: border-box;
 }
 @media screen (min-width: 992px) {
@@ -23,12 +21,6 @@ html::selection {
 }
 body {
   padding: 10px 10px;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  margin-top: 8px;
-  margin-bottom: 10px;
 }
 hr {
   border: 1px solid #f1f1f1;
@@ -61,8 +53,8 @@ a:link:hover {
   text-align: center;
 }
 img {
-  max-width: 80%;
-  max-height: 80%;
+  max-width: 100%;
+  height: auto;
 }
 code, pre {
   font-size: 12px;
@@ -82,16 +74,17 @@ pre {
   border: 1px solid #9299a0;
 }
 table {
-  font-family: arial, sans-serif;
+  font-family: Arial, Helvetica, Sans-Serif;
+  border: 1px solid #ccc;
   border-collapse: collapse;
   border-spacing: 0;
   width: 100%;
   margin-bottom: 1.5rem;
   overflow-x: auto;
-  white-space: nowrap;
   table-layout: fixed;
 }
-td, th {
+table tr:hover {background-color: #ddd;}
+table td, table th {
   border: 1px solid #ddd;
   text-align: center;
   padding: 4px 4px;
@@ -100,18 +93,18 @@ td, th {
 }
 thead th {
   font-family: Times New Roman;
-  background-color: lightblue;
+  background-color: #00ffff;
 }
 tbody th {
   font-weight: 400;
   font-family: Trebuchet MS;
 }
-tr:nth-child(even) {
+table tr:nth-child(even) {
   background-color: #ddd;
 }
-td:nth-child(odd) {
+table td:nth-child(odd) {
   width: 25%;
 }
-td:nth-child(even) {
+table td:nth-child(even) {
   width: 50%;
 }
