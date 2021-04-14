@@ -4,23 +4,34 @@ html {
   scroll-behavior: smooth;
   box-sizing: border-box;
 }
+/* mobile friendly alternative to using background-attachment: fixed */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
 @media screen (min-width: 992px) {
-  html {
+  body {
     width: 100vw;
   }
 }
 html::selection {
   background-color: #20c997;
 }
-*, *::before, *::after {
-  box-sizing: inherit;
-  scroll-behavior: inherit;
-}
 *::selection {
   background-color: inherit;
 }
-body {
-  padding: 10px 10px;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 hr {
   border: 1px solid #f1f1f1;
@@ -34,6 +45,38 @@ article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section {
 }
 header, section, footer {
   padding: 20px 20px;
+}
+#loading {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  z-index: 999;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+#spinner {
+  animation: rotate 0.5s infinite linear;
+  width: 50px;
+  height: 50px;
+  border: 2px solid #fff;
+  border-bottom: 2px solid #0a0a0a;
+  border-radius: 50%;
+  margin: 0;
+}
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
 }
 a:link {
   color: #007bff;
@@ -56,23 +99,36 @@ img {
   max-width: 100%;
   height: auto;
 }
+
+/* Codes */
 code, pre {
   font-size: 12px;
   overflow-x: auto;
 }
 code {
-  font-family: Consolas;
-  padding: 2px;
+  display: block;
+  text-align: left;
+  white-space: pre-line;
+  position: relative;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 2;
+  background-color: #f7f7f7;
+  padding: 15px;
+  margin: 10px;
+  border-radius: 5px;
 }
-pre {
-  margin: 0px -10px;
-  padding: 20px 20px;
+@media only screen and (max-width: 400px) {
+  code {
+    margin-left: -20px;
+    width: 100%;
+    padding: 15px;
+    padding-left: 10px;
+    padding-right: 45px;
+    min-width: 233px;
+  }
 }
-pre {
-  color: #404040;
-  background-color: #fff;
-  border: 1px solid #9299a0;
-}
+
 table {
   font-family: Arial, Helvetica, Sans-Serif;
   border: 1px solid #ccc;
